@@ -1,9 +1,9 @@
-const express = require('express'),
+const express = require("express"),
       router = express.Router();
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     res.send("Hello, world!");
-    console.log('Someone connected to the server!');
+    console.log("Someone connected to the server!");
 });
 
 module.exports = router;
