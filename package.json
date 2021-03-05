@@ -31,9 +31,11 @@
     "main": "server.js",
     "private": true,
     "dependencies": {
+        "ejs": "*",
         "express": "*",
         "mongoose": "*",
-        "react": "*"
+        "react": "*",
+        "twilio": "*"
     },
     "engines": {
         "node": "*",
