@@ -1,0 +1,42 @@
+{
+    "name": "get2know",
+    "version": "0.0.1",
+    "author": {
+        "name": "Nathanael Putro",
+        "email": "nputro@student.unimelb.edu.au"
+    },
+    "contributors": [
+        {
+            "name": "Callista Low Li Yin",
+            "email": "callistaliyi@student.unimelb.edu.au"
+        },
+        {
+            "name": "Livya Riany",
+            "email": "lriany@student.unimelb.edu.au"
+        },
+        {
+            "name": "Stanley Wirian",
+            "email": "swirian@student.unimelb.edu.au"
+        },
+        {
+            "name": "Tabitha Ayudya",
+            "email": "tayudya@student.unimelb.edu.au"
+        },
+        {
+            "name": "Yuji Nojima",
+            "email": "ynojima@student.unimelb.edu.au"
+        }
+    ],
+    "repository": "github:techn0mancr/get2know",
+    "main": "server.js",
+    "private": true,
+    "dependencies": {
+        "express": "*",
+        "mongoose": "*",
+        "react": "*"
+    },
+    "engines": {
+        "node": "*",
+        "npm": "*"
+    }
+}

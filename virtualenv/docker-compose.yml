@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  mern:
+    build:
+      context: .
+      dockerfile: mern.Dockerfile
+    image: mern:get2know
+    container_name: mern
+    volumes:
+      - type: bind
+        source: ..
+        target: /home/get2know/workspace
+    ports:
+      - "8080:3000"
