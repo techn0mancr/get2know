@@ -10,7 +10,7 @@ ul{
 }
 
 .logo {
-  padding-top: 6em;
+  padding-top: 3em;
 }
 
 img{
@@ -26,7 +26,7 @@ img{
   font-size: 22px;
 }
 .motto h1 {
-  font-size: 96px;
+  font-size: 6.5vw;
   margin: 0;
 }
 
@@ -106,7 +106,7 @@ img{
   top: 100px;
 }
 
-.squiggle {
+.squiggleone {
   position: absolute;
   left: 0px;
   top: 400px;
@@ -239,7 +239,9 @@ td{
   font-style: medium;
   margin-top: 0.25em;
 }
-
+.activity-topic:hover{
+  transform: scale();
+}
 .star {
   position: absolute;
   right: 270px;
@@ -271,5 +273,54 @@ td{
 }
 
 #box4 {
-  background: #F53608;
+  background: #be08f5;
+}
+
+.ingame-container {
+  text-align: left;
+  padding-left: 7em;
+  padding-top: 6em;
+}
+.ingame-container .ingame-name {
+  color: #FF7D7D;
+}
+
+.ingame-question-container {
+  color: #FFFFFF;
+}
+.ingame-question-container h1 {
+  font-size: 36px;
+  margin-bottom: 3em;
+}
+.ingame-question-container p {
+  font-size: 64px;
+  margin: 0;
+}
+
+.ingame-order-container {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 55% auto;
+  font-size: 36px;
+}
+.ingame-order-container .ingame-left {
+  color: #FFFFFF;
+}
+.ingame-order-container .ingame-right {
+  text-align: right;
+  padding-right: 3em;
+}
+.ingame-order-container .ingame-right button {
+  background-color: #131313;
+  border: 3px solid #FF7D7D;
+  border-radius: 40px;
+  width: 280px;
+  height: auto;
+  color: #FF7D7D;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+button:focus {
+    outline: none;
 }

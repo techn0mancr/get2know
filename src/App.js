@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import React, {component,useState,useEffect} from 'react'
-import {BrowserRouter as Router, Switch,Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch,Link, Route, Redirect,useHistory} from 'react-router-dom';
 import Home from './Home'
 function App() {
-  const qlist = ["how are you","what is your favourite color","do you want a pet?"];
+  const normalList = ["how are you","Do you consider yourself an introvert or an extrovert?","do you want a pet?","what do you do in your spare time", "What is your fav food?","do you have a job","have you played any instruments", "Do you play any sports","What is your favourite tv show/series", "What is your background"];
+  const romanceList = ["will you relocate for love?","what qualities do you look for in a partner","Have you ever been in love?","What is your ideal date?","How many people have you dated?","superirior or inferior?","Are you fine with Long Distance","What are your thoughts on PDA","What is your love language?","What is your favourite romantic memory?"]
+  const classList = ["What are you majoring/studying", "What are your favourite subjects","What university do you go to?","Do you enjoy more theory or practical","What are your educational goals","How often do you study?","Do you try to be organised","Do you procrastinate? >:(", "Do you use memory or understanding?","Do you prefer to study with tech or sticks?"]
+  const deepList = ["Do you believe in fate or destiny?","what are your biggest fears in life?", "what is your biggest regret in life","what god do you believe in","Do you believe in reincarnation?","Do you believe in aliens", "What is your purpose in life","what event changed you the most","what is your biggest insecurity","When was the last time you genuinely cried"]
+
+  const [finishline,setFinish]=useState(0);
+
   const [name,setName]= useState('');
   const [nameList,setnamesList]= useState([]);
-  const [currentRound,setcurrentRound]= useState(1);
+  const [currentRound,setcurrentRound]= useState(0);
   const [pListSize, setpListSize] = useState(0);
-  const [qListSize, setqListSize] = useState(3);
+  const [qListSize, setqListSize] = useState(10);
   const [timePerQuestion,setQTimer] = useState(30);
   const [numRounds,setNumRounds] = useState(3);
   const [appearedPairs,setAppearedPairs] = useState([]);
   const [pack,setPack]= useState('default');
+  const [totalques,setTotalQues] = useState(0);
+
 
   const resetRounds = () =>{
-    setcurrentRound(1);
+    setcurrentRound(0);
     setAppearedPairs([]);
   }
+
   const setTimer = e =>{
     setQTimer(e.target.value);
   }
@@ -39,10 +48,6 @@ function App() {
     setpListSize(psize);
     setName("");
   }
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('The link was clicked.');
-    }
 
   const clearName = (nameToDelete) => {
     const newList = nameList;
@@ -61,15 +66,18 @@ function App() {
 
 
   const newRound = () =>{
-    var newRoundnum = currentRound + 1;
-    setcurrentRound(newRoundnum);
+    //var newRoundnum = currentRound + 1;
+    //setcurrentRound(newRoundnum);
     console.log("current round:" +currentRound)
     console.log("player count:" +pListSize);
     console.log("question count:" +qListSize);
     console.log("time per ques:" +timePerQuestion);
     console.log("maxrounds:"+numRounds);
+
     return null;
   }
+
+
   const setSettings = () =>{
     var slider = document.getElementById("timePerQuestion");;
     var output = document.getElementById("timeshow");
@@ -88,15 +96,30 @@ function App() {
 
   
   const getQuestion = () =>{
-    var currentIndexPair = generateIndexPair(pListSize, qListSize, appearedPairs)
+    // if (currentRound >= numRounds) return <Redirect to="/end"/>
+    var currentIndexPair = generateIndexPair(pListSize, qListSize, appearedPairs);
     const newpair = appearedPairs.concat(currentIndexPair);
     setAppearedPairs(newpair);
-    console.log(currentIndexPair.qIndex);
-    console.log(currentIndexPair.pIndex);
-    console.log(qlist);
+    console.log(nameList);
+    console.log("question#"+currentIndexPair.qIndex);
+    console.log("player#"+currentIndexPair.pIndex);
+    console.log("current round"+currentRound);
     var output = document.getElementById("questionHolder");
     console.log(output);
-    output.innerHTML = qlist[currentIndexPair.qIndex];
+    const ques=totalques+1;
+    setTotalQues(ques);
+    //list selector
+    if (pack==="default"){
+      output.innerHTML = normalList[currentIndexPair.qIndex];
+    } else if (pack==="class"){
+      output.innerHTML = classList[currentIndexPair.qIndex];
+    } else if (pack==="romance"){
+      output.innerHTML = romanceList[currentIndexPair.qIndex];
+    } else if (pack==="deep"){
+      output.innerHTML = deepList[currentIndexPair.qIndex];
+    }
+    
+
 
     var outputr = document.getElementById("personHolder");
     outputr.innerHTML = nameList[currentIndexPair.pIndex];
@@ -105,32 +128,78 @@ function App() {
     <start counting down until timePerRound expires, then kick the user to the next question> */}
   }
 
+  function HomeButton() {
+    let history = useHistory();
+  
+    function handleClick() {
+      history.push("/end");
+    }
+  
+    return (
+      <Redirect to="/end/" />
+    );
+  }
+
   let generateIndexPair = (pListSize, qListSize, pqIndexPairs) => {
-    let isDuplicate = true, pi, qi, newPair;
-    while (isDuplicate) {
-        // Pick random indices for the player and question
-        pi = Math.floor(Math.random() * pListSize);
-        qi = Math.floor(Math.random() * qListSize);
-        
-        // Check for duplicate pairing
-        isDuplicate = false;
-        for (let pqIndexPair of pqIndexPairs) {
-            if (pqIndexPair.pIndex === pi && pqIndexPair.qIndex === qi) {
-                // Is a duplicate pairing
-                isDuplicate = true;
-                break;
-            }
+    // Clear the index pairs array if all the player-question combinations
+    // have been exhausted
+    if (pqIndexPairs.length >= pListSize*qListSize) {
+        pqIndexPairs.length = 0;
+    }
+
+    let isDupQ, pi, qi;
+    let isAsked = [];
+    let numPlayersAsked = pqIndexPairs.length % pListSize;
+    let numPlayersUnasked = pListSize - numPlayersAsked;
+    let candidatePI = [];
+    if (numPlayersAsked === 0) {
+      setcurrentRound(currentRound + 1);
+  }
+
+    // Figure out who has been asked this round
+    for (let i = 0; i < pListSize; i++) {
+        isAsked.push(false);
+    }
+    for (let i = 0; i < numPlayersAsked; i++) {
+        isAsked[pqIndexPairs[pqIndexPairs.length-1-i].pIndex] = true;
+    }
+    
+    // Make an array consisting of who has not been asked this round
+    for (let i = 0; i < pListSize; i++) {
+        if (!isAsked[i]) {
+            candidatePI.push(i);
         }
     }
 
-    // Not a duplicate pairing
-    newPair = {pIndex: pi, qIndex: qi};
-    pqIndexPairs.push(newPair);
-    return newPair;
+    // Choose a random player from that array
+    pi = candidatePI[Math.floor(Math.random() * numPlayersUnasked)];
+    do {
+        // Pick random indices for the question
+        qi = Math.floor(Math.random() * qListSize);
+        
+        // Check for duplicate question
+        isDupQ = false;
+        for (let pqIndexPair of pqIndexPairs) {
+            if (pqIndexPair.pIndex === pi && pqIndexPair.qIndex === qi) {
+                // Is a duplicate question
+                isDupQ = true;
+                break;
+            }
+        }
+    } while (isDupQ)
+
+    return {pIndex: pi, qIndex: qi};
 }
 
+let link=`/round${currentRound}`;
+if ((totalques) >= (numRounds*pListSize)){
+  console.log("Finishlineincoming");
+//   setFinish(1)
 
-
+// } else if ((finishline==1)&&(currentRound >= numRounds)){
+  link="/end";
+}
+console.log("total ques"+totalques);
   return (
     <Router>
     <div className="App">
@@ -141,7 +210,7 @@ function App() {
      <div className="rectangle" style={{zIndex:2}}>
       <div style={{zIndex:1}}>
       <img src="star.png" className="star"/>
-      <img src="squiggle.png" className="squiggle"/>
+      <img src="squiggle.png" className="squiggleone"/>
       <img src="eclipse.png" className="eclipse"/>
       </div>
       <div className="logo">
@@ -239,26 +308,34 @@ function App() {
 
             <Link to={`/lobby`}>
               <div className="start-container">
-                <p className="custom-start" onClick={(e) =>{newRound();getQuestion()}}>Start Game &#8594;</p>
+                <p className="custom-start">Start Game &#8594;</p>
               </div>
             </Link> 
 
             </div>
           )}/>
           <Route path="/round:id" render={()=>(
-            <div>
-              <Link to={`/lobby`}>
-            <button onClick={(e)=>resetRounds()}>back to lobbyu</button>
-            </Link> 
-              <h1>Round {currentRound-1}</h1>
-              <h1 id="questionHolder" style={{fontSize:'6.5vw', color:'white'}}>enter question</h1>
-              <br/>
-              <h3 id="personHolder" style={{fontSize:'4.5vw', color:'white'}}>name</h3>
-              <Link to={`/round${currentRound}`}>
-            <button onClick={(e) =>{newRound();getQuestion()}}>next round!</button>
-            </Link> 
+
+            <div class="ingame-container">
+                <div class="ingame-question-container">
+                    <h1 class="ingame-greeting">
+                        Hey, <span class = "ingame-name" id="personHolder">Lets Begin</span>!
+                    </h1>
+                    <p id="questionHolder"></p>
+                </div>
+                <div class="ingame-order-container">
+                    <div class="ingame-left">
+                        <p>Round {currentRound}</p>
+                    </div>
+                    <div class="ingame-right">
+                        <Link to={link}>
+                            <button onClick={(e) =>{newRound();getQuestion()}}>next question</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
-          )}/>
+
+            )}/>
           <Route path="/lobby" render={()=>(
           <div className="activity-container">
           <img src="polygon.png" className="activity-polygon"/>
@@ -292,13 +369,14 @@ function App() {
                     </div>
                     <div className="activity-topic">
                     <Link to={`/round1`}>
-                        <div onClick={(e) =>{newRound();setPack("more")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
-                        <p className="activity-content">More packs</p>
+                        <div onClick={(e) =>{newRound();setPack("deep")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
+                        <p className="activity-content">Very Deep</p>
                         </Link>
                     </div>
             </div>
       </div>  
           )}/>
+          <Route path="/end" component={Home}/>
           </Switch>
           </Main>
     </div>
