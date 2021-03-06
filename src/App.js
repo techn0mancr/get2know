@@ -3,11 +3,55 @@ import React, {component,useState,useEffect} from 'react'
 import {BrowserRouter as Router, Switch,Link, Route, Redirect,useHistory} from 'react-router-dom';
 import Home from './Home'
 function App() {
-  const normalList = ["how are you","Do you consider yourself an introvert or an extrovert?","do you want a pet?","what do you do in your spare time", "What is your fav food?","do you have a job","have you played any instruments", "Do you play any sports","What is your favourite tv show/series", "What is your background"];
-  const romanceList = ["will you relocate for love?","what qualities do you look for in a partner","Have you ever been in love?","What is your ideal date?","How many people have you dated?","superirior or inferior?","Are you fine with Long Distance","What are your thoughts on PDA","What is your love language?","What is your favourite romantic memory?"]
-  const classList = ["What are you majoring/studying", "What are your favourite subjects","What university do you go to?","Do you enjoy more theory or practical","What are your educational goals","How often do you study?","Do you try to be organised","Do you procrastinate? >:(", "Do you use memory or understanding?","Do you prefer to study with tech or sticks?"]
-  const deepList = ["Do you believe in fate or destiny?","what are your biggest fears in life?", "what is your biggest regret in life","what god do you believe in","Do you believe in reincarnation?","Do you believe in aliens", "What is your purpose in life","what event changed you the most","what is your biggest insecurity","When was the last time you genuinely cried"]
-
+const normalList = [
+        "What is your favourite color, that is also a smell?",
+        "Do you have any pets?</p><p>A gold fish counts.&#128032;",
+        "What is your favorite</p><p>midnight snack?&#127868;&#127831;&#127829;",
+        "What is your most used emoji&#128514;&#128536;&#128526;?",
+        "&#128094;&#128095;&#128096;&#128098;</p><p>How many pairs of shoes do you own?",
+        "What household &#10024;chore&#10024;<p><p>do you actually enjoy doing?",
+        "What is your favourite season?&#127793;&#9924;",
+        "What is your favourite</p><p>TV show/series&#128250;",
+        "If you had to delete all but 3 apps from your</p><p>smartphone&#128241;, which ones would you keep?",
+        "Once we can travel the world again,</p><p> where would you go for your dream vacation?&#127965;"
+      ];
+  const romanceList = [
+        "Will you &#10024;relocate&#10024;</p><p>for &#10024;love&#10024;?",
+        "what qualities do you look for in a partner?&#128129;",
+        "Have you ever been in love?&#128145;",
+        "What is your ideal date?&#127871;&#128250;",
+        "How many people have you dated?",
+        "Are you fine with</p><p>&#127757;long distance relationships&#127759;",
+        "What are your thoughts on PDA?&#128143;",
+        "What is your love&#128152; language?",
+        "What is your most treasured</p><p>memory?&#128173;",
+        "What roles do love&#128149; and</p><p>affection&#128139; play in your life?"
+      ];
+  const classList = [
+        "What are you majoring in,</p><p>or thinking of majoring in?",
+        "What are your favourite subjects?",
+        "Which university do you go to?    &#127890;",
+        "Do you enjoy more theory&#128217; </p><p>or practical&#128296; study?",
+        "What are your academic goals?&#128161;&#128170;",
+        "How often do you study?&#129299;",
+        "Do you try to be organised?",
+        "Do you procrastinate?&#128544;",
+        "Do you prefer learning from memory&#128173;</p><p>or understanding&#129504?",
+        "Do you prefer to study with tech or sticks?"
+      ];
+  const deepList = [
+      "Is there such a thing as a &#10024perfect&#10024 life?",
+      "What are your biggest fears in life?",
+      "Do acts of kindness have a motive?",
+      "What god do you believe in&#128519,</p><p>if any?;",
+      "Do you believe</p><p>in &#128123;reincarnation&#128118;?",
+      "Do you believe in aliens?&#128640;&#128125;",
+      "What is your purpose in life&#128563;, if any&#128561;?",
+      "What event changed you the most",
+      "Are humans obligated to better themselves</p><p>and will that make them happier?",
+      "How do you feel about</p><p>&#129313;clowns&#129313;?",
+      "When was the last time you genuinely cried"
+    ];
   const [finishline,setFinish]=useState(0);
 
   const [name,setName]= useState('');
