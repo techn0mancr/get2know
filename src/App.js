@@ -3,12 +3,18 @@ import React, {component,useState,useEffect} from 'react'
 import {BrowserRouter as Router, Switch,Link, Route} from 'react-router-dom';
 import Home from './Home'
 function App() {
-  const qlist = ["how are you","what is your favourite color","do you want a pet?"];
+  const normalList = ["how are you","Do you consider yourself an introvert or an extrovert?","do you want a pet?","what do you do in your spare time", "What is your fav food?","do you have a job","have you played any instruments", "Do you play any sports","What is your favourite tv show/series", "What is your background"];
+  const romanceList = ["will you relocate for love?","what qualities do you look for in a partner","Have you ever been in love?","What is your ideal date?","How many people have you dated?","superirior or inferior?","Are you fine with Long Distance","What are your thoughts on PDA","What is your love language?","What is your favourite romantic memory?"]
+  const classList = ["What are you majoring/studying", "What are your favourite subjects","What university do you go to?","Do you enjoy more theory or practical","What are your educational goals","How often do you study?","Do you try to be organised","Do you procrastinate? >:(", "Do you use memory or understanding?","Do you prefer to study with tech or sticks?"]
+  const deepList = ["Do you believe in fate or destiny?","what are your biggest fears in life?", "what is your biggest regret in life","what god do you believe in","Do you believe in reincarnation?","Do you believe in aliens", "What is your purpose in life","what event changed you the most","what is your biggest insecurity","When was the last time you genuinely cried"]
+
+
+
   const [name,setName]= useState('');
   const [nameList,setnamesList]= useState([]);
   const [currentRound,setcurrentRound]= useState(1);
   const [pListSize, setpListSize] = useState(0);
-  const [qListSize, setqListSize] = useState(3);
+  const [qListSize, setqListSize] = useState(10);
   const [timePerQuestion,setQTimer] = useState(30);
   const [numRounds,setNumRounds] = useState(3);
   const [appearedPairs,setAppearedPairs] = useState([]);
@@ -93,10 +99,22 @@ function App() {
     setAppearedPairs(newpair);
     console.log(currentIndexPair.qIndex);
     console.log(currentIndexPair.pIndex);
-    console.log(qlist);
+    // console.log(qlist);
     var output = document.getElementById("questionHolder");
     console.log(output);
-    output.innerHTML = qlist[currentIndexPair.qIndex];
+
+    //list selector
+    if (pack==="default"){
+      output.innerHTML = normalList[currentIndexPair.qIndex];
+    } else if (pack==="class"){
+      output.innerHTML = classList[currentIndexPair.qIndex];
+    } else if (pack==="romance"){
+      output.innerHTML = romanceList[currentIndexPair.qIndex];
+    } else if (pack==="deep"){
+      output.innerHTML = deepList[currentIndexPair.qIndex];
+    }
+    
+
 
     var outputr = document.getElementById("personHolder");
     outputr.innerHTML = nameList[currentIndexPair.pIndex];
@@ -239,26 +257,34 @@ function App() {
 
             <Link to={`/lobby`}>
               <div className="start-container">
-                <p className="custom-start" onClick={(e) =>{newRound();getQuestion()}}>Start Game &#8594;</p>
+                <p className="custom-start">Start Game &#8594;</p>
               </div>
             </Link> 
 
             </div>
           )}/>
           <Route path="/round:id" render={()=>(
-            <div>
-              <Link to={`/lobby`}>
-            <button onClick={(e)=>resetRounds()}>back to lobbyu</button>
-            </Link> 
-              <h1>Round {currentRound-1}</h1>
-              <h1 id="questionHolder" style={{fontSize:'6.5vw', color:'white'}}>enter question</h1>
-              <br/>
-              <h3 id="personHolder" style={{fontSize:'4.5vw', color:'white'}}>name</h3>
-              <Link to={`/round${currentRound}`}>
-            <button onClick={(e) =>{newRound();getQuestion()}}>next round!</button>
-            </Link> 
+
+            <div class="ingame-container">
+                <div class="ingame-question-container">
+                    <h1 class="ingame-greeting">
+                        Hey, <span class = "ingame-name" id="personHolder">name</span>!
+                    </h1>
+                    <p id="questionHolder"></p>
+                </div>
+                <div class="ingame-order-container">
+                    <div class="ingame-left">
+                        <p>Round {currentRound-1}</p>
+                    </div>
+                    <div class="ingame-right">
+                        <Link to={`/round${currentRound}`}>
+                            <button onClick={(e) =>{newRound();getQuestion()}}>next question</button>
+                        </Link>
+                    </div>
+                </div>
             </div>
-          )}/>
+
+            )}/>
           <Route path="/lobby" render={()=>(
           <div className="activity-container">
           <img src="polygon.png" className="activity-polygon"/>
@@ -292,10 +318,10 @@ function App() {
                     </div>
                     <div className="activity-topic">
                     <Link to={`/round1`}>
-                        <div onClick={(e) =>{newRound();setPack("more")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
-                        <p className="activity-content">More packs</p>
+                        <div onClick={(e) =>{newRound();setPack("deep")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
+                        <p className="activity-content">Very Deep</p>
                         </Link>
-                    </div>''
+                    </div>
             </div>
       </div>  
           )}/>
