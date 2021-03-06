@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: #131313;
+  height: 100vh;
+  margin-left: 180px;
+}
+
+.logo {
+  padding-top: 6em;
+}
+
+.header {
+  margin-bottom: 5em;
+}
+.header h1 {
+  color: #FFFFFF;
+  font-size: 72px;
+  font-style: SemiBold;
+}
+
+.topics {
+  text-align: center;
+  column-count: 2;
+}
+.topics .topic {
+  height: 350px;
+  width: 510px;
+  margin-bottom: 100px;
+}
+.topics .topic .rectangle {
+  height: 310px;
+  width: 500px;
+  border-radius: 30px;
+}
+.topics .topic .rectangle img {
+  margin-top: 20px;
+}
+.topics .topic p {
+  color: #FFFFFF;
+  font-size: 36px;
+  font-style: medium;
+  margin-top: 0.25em;
+}
+
+.star {
+  position: absolute;
+  right: 270px;
+  top: 130px;
+}
+
+.polygon {
+  position: absolute;
+  right: 140px;
+  top: 80px;
+}
+
+.squiggle {
+  position: absolute;
+  left: 0px;
+  top: 1150px;
+}
+
+#box1 {
+  background: #FFEC89;
+}
+
+#box2 {
+  background: #EA51C8;
+}
+
+#box3 {
+  background: #4176E1;
+}
+
+#box4 {
+  background: #F53608;
+}
+
+/*# sourceMappingURL=activity.css.map */

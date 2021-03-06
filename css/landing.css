@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: #131313;
+  height: 100vh;
+  text-align: center;
+}
+
+.logo {
+  padding-top: 6em;
+}
+
+.motto {
+  color: #FFFFFF;
+  padding-bottom: 4em;
+}
+.motto p {
+  font-size: 22px;
+}
+.motto h1 {
+  font-size: 96px;
+  margin: 0;
+}
+
+.buttons {
+  font-size: 24px;
+  font-family: "Poppins";
+}
+.buttons .join-btn {
+  border: none;
+  padding: 0.5em;
+  border-radius: 20px;
+  background: #FF7D7D;
+  color: #FFFFFF;
+}
+.buttons .create-btn {
+  border-color: #FF7D7D;
+  color: #FF7D7D;
+  background: #131313;
+  padding: 0.5em;
+  border-radius: 20px;
+}
+
+.entername input {
+  font-family: "Poppins";
+  font-size: 18px;
+  font-style: medium;
+  padding-left: 2em;
+  width: 408px;
+  height: 47px;
+  left: 521px;
+  top: 513px;
+  outline: none;
+  border: none;
+  border-radius: 100px;
+}
+.entername ::placeholder {
+  font-family: "Poppins";
+  font-size: 18px;
+}
+.entername .small {
+  font-size: 14px;
+  color: #FF8484;
+  text-align: right;
+  padding-right: 580px;
+  margin: 0.2em;
+}
+
+.player-container {
+  height: 84px;
+  display: table;
+  width: 100%;
+  text-align: center;
+}
+.player-container ul {
+  list-style: none;
+  padding-top: 20px;
+}
+.player-container ul li {
+  font-size: 22px;
+  font-style: SemiBold;
+  color: #FFFFFF;
+  display: inline;
+  padding: 1em;
+}
+
+.start {
+  font-size: 24px;
+  font-style: medium;
+  color: #FFEC89;
+  text-decoration: underline;
+}
+
+.star {
+  position: absolute;
+  left: 80px;
+  top: 100px;
+}
+
+.squiggle {
+  position: absolute;
+  left: 0px;
+  top: 400px;
+}
+
+.eclipse {
+  position: absolute;
+  width: 350px;
+  height: auto;
+  top: 300px;
+  right: 60px;
+}
+
+/*# sourceMappingURL=landing.css.map */

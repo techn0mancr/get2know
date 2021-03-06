@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  margin: 0;
+  font-family: "Poppins";
+  background: #131313;
+  height: 100vh;
+}
+
+.container {
+  text-align: left;
+  padding-left: 7em;
+  padding-top: 6em;
+}
+.container .name {
+  color: #FF7D7D;
+}
+
+.question-container {
+  color: #FFFFFF;
+}
+.question-container h1 {
+  font-size: 36px;
+  margin-bottom: 3em;
+}
+.question-container p {
+  font-size: 64px;
+  margin: 0;
+}
+
+.order-container {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 55% auto;
+  font-size: 36px;
+}
+.order-container .left {
+  color: #FFFFFF;
+}
+.order-container .right {
+  text-align: right;
+  color: #FF7D7D;
+  padding-right: 3em;
+}
+
+/*# sourceMappingURL=ingame.css.map */
