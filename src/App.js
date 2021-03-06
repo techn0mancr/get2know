@@ -292,13 +292,6 @@ console.log("total ques"+totalques);
                   <div><span id="roundshow">3</span> Rounds</div>
                 </div>
                 <div>
-                <p className="setting-names">Question pack dropdown:</p>
-                <div>
-                <select id="questionPackName" name="questionPackName">
-                  <option value="icebreakers">Icebreakers</option>
-                  <option value="nsfw">NSFW</option>
-                </select>
-                </div>
               </div>
             </div>  
             </form>
