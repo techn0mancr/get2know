@@ -20,7 +20,7 @@ WORKDIR /home/get2know-react/workspace
 RUN npm install
 
 # Set current user to non-root user
-USER get2know
+USER get2know-react
 
 # Run the Node.js server
 CMD ["npm", "start"]
