@@ -295,7 +295,7 @@ function App() {
                         <div onClick={(e) =>{newRound();setPack("more")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
                         <p className="activity-content">More packs</p>
                         </Link>
-                    </div>
+                    </div>''
             </div>
       </div>  
           )}/>
