@@ -16,7 +16,23 @@ ul{
 img{
   z-index: 0;
 }
-
+.ingame-order-container .ingame-right {
+  text-align: right;
+  position: absolute;
+  margin-left: 1050px;
+  padding-top: 1.2em;
+}
+.ingame-order-container .ingame-right button {
+  background-color: #131313;
+  border: 3px solid #FF7D7D;
+  border-radius: 40px;
+  width: 280px;
+  height: auto;
+  color: #FF7D7D;
+  font-size: 36px;
+  text-decoration: none;
+  font-family: "Poppins";
+}
 .motto {
   color: #FFFFFF;
   padding-bottom: 4em;

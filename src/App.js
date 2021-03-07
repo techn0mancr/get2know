@@ -1,57 +1,58 @@
 import logo from './logo.svg';
 import React, {component,useState,useEffect} from 'react'
 import {BrowserRouter as Router, Switch,Link, Route, Redirect,useHistory} from 'react-router-dom';
-import Home from './Home'
+import FadeInAnimation from "./FadeAni"
 function App() {
-const normalList = [
-        "What is your favourite color, that is also a smell?",
-        "Do you have any pets?</p><p>A gold fish counts.&#128032;",
-        "What is your favorite</p><p>midnight snack?&#127868;&#127831;&#127829;",
-        "What is your most used emoji&#128514;&#128536;&#128526;?",
-        "&#128094;&#128095;&#128096;&#128098;</p><p>How many pairs of shoes do you own?",
-        "What household &#10024;chore&#10024;<p><p>do you actually enjoy doing?",
-        "What is your favourite season?&#127793;&#9924;",
-        "What is your favourite</p><p>TV show/series&#128250;",
-        "If you had to delete all but 3 apps from your</p><p>smartphone&#128241;, which ones would you keep?",
-        "Once we can travel the world again,</p><p> where would you go for your dream vacation?&#127965;"
-      ];
-  const romanceList = [
-        "Will you &#10024;relocate&#10024;</p><p>for &#10024;love&#10024;?",
-        "what qualities do you look for in a partner?&#128129;",
-        "Have you ever been in love?&#128145;",
-        "What is your ideal date?&#127871;&#128250;",
-        "How many people have you dated?",
-        "Are you fine with</p><p>&#127757;long distance relationships&#127759;",
-        "What are your thoughts on PDA?&#128143;",
-        "What is your love&#128152; language?",
-        "What is your most treasured</p><p>memory?&#128173;",
-        "What roles do love&#128149; and</p><p>affection&#128139; play in your life?"
-      ];
-  const classList = [
-        "What are you majoring in,</p><p>or thinking of majoring in?",
-        "What are your favourite subjects?",
-        "Which university do you go to?    &#127890;",
-        "Do you enjoy more theory&#128217; </p><p>or practical&#128296; study?",
-        "What are your academic goals?&#128161;&#128170;",
-        "How often do you study?&#129299;",
-        "Do you try to be organised?",
-        "Do you procrastinate?&#128544;",
-        "Do you prefer learning from memory&#128173;</p><p>or understanding&#129504?",
-        "Do you prefer to study with tech or sticks?"
-      ];
-  const deepList = [
-      "Is there such a thing as a &#10024perfect&#10024 life?",
-      "What are your biggest fears in life?",
-      "Do acts of kindness have a motive?",
-      "What god do you believe in&#128519,</p><p>if any?;",
-      "Do you believe</p><p>in &#128123;reincarnation&#128118;?",
-      "Do you believe in aliens?&#128640;&#128125;",
-      "What is your purpose in life&#128563;, if any&#128561;?",
-      "What event changed you the most",
-      "Are humans obligated to better themselves</p><p>and will that make them happier?",
-      "How do you feel about</p><p>&#129313;clowns&#129313;?",
-      "When was the last time you genuinely cried"
-    ];
+  
+  const normalList = [
+    "What is your favourite color, that is also a smell?",
+    "Do you have any pets?</p><p>A gold fish counts&#128032;",
+    "What is your favorite</p><p>midnight snack?&#127868;&#127831;&#127829;",
+    "What is your most used emoji&#128514;&#128536;&#128526;?",
+    "&#128094;&#128095;&#128096;&#128098;</p><p>How many pairs of shoes do you own?",
+    "What household &#10024;chore&#10024;<p><p>do you actually enjoy doing?",
+    "What is your favourite season?&#127793;&#9924;",
+    "What is your favourite</p><p>TV show/series?&#128250;&#127871;",
+    "If you had to delete all but</p><p>3 apps from yoursmartphone&#128241;,</p><p>which ones would you keep?",
+    "Once we can travel the world again,</p><p> where would you go for</p><p>your dream vacation?&#127940;&#127796;"
+  ];
+const romanceList = [
+    "Will you &#10024;relocate&#10024;</p><p>for &#10024;love&#10024;?",
+    "What qualities do you look for in a partner?&#128129;",
+    "Have you ever been in love?&#128145;",
+    "What is your ideal date?&#127871;&#128250;",
+    "How many people have you dated?",
+    "Are you fine with</p><p>&#127757;long distance relationships&#127759;",
+    "What are your thoughts on PDA?&#128143;",
+    "What is your love&#128152; language?",
+    "What is your most treasured</p><p>memory?&#128173;",
+    "What roles do love&#128149; and</p><p>affection&#128139; play in your life?"
+  ];
+const classList = [
+    "What are you majoring in,</p><p>or thinking of majoring in?",
+    "What are your favourite subjects?&#128175;",
+    "Which university do you go to?    &#127890;",
+    "Do you enjoy more theory&#128217; </p><p>or practical&#128296; study?",
+    "What are your academic goals?&#128161;&#128170;",
+    "How often do you study?&#129299;",
+    "Do you try to be organised?",
+    "Do you procrastinate?&#128544;",
+    "Do you prefer learning from memory&#128173;</p><p>or understanding&#129504?",
+    "Do you prefer to study with tech or sticks?"
+  ];
+const deepList = [
+  "Is there such a thing as a</p><p>&#10024;perfect&#10024; life?",
+  "What are your biggest fears in life?",
+  "Do you think acts of</p><p>kindness have a motive?&#129297;",
+  "Do you believe that there</p><p>is a being of higher power?&#128519;",
+  "Do you believe</p><p>in &#128123;reincarnation&#128118;?",
+  "Do you believe in aliens?&#128640;&#128125;",
+  "What is your purpose in life&#128563;, if any&#128561;?",
+  "Was there ever an event</p><p>that was a turning point</p><p>in your life?",
+  "Are humans obligated to better themselves</p><p>and will that make them happier?",
+  "Do we love ourselves more</p><p>in the virtual world    &#128126;</p><p>and less in the real world?&#127804;",
+  "When was the last time you genuinely cried?    &#128557;"
+];
   const [finishline,setFinish]=useState(0);
 
   const [name,setName]= useState('');
@@ -68,6 +69,8 @@ const normalList = [
 
   const resetRounds = () =>{
     setcurrentRound(0);
+    setTotalQues(0);
+    setFinish(0);
     setAppearedPairs([]);
   }
 
@@ -172,17 +175,6 @@ const normalList = [
     <start counting down until timePerRound expires, then kick the user to the next question> */}
   }
 
-  function HomeButton() {
-    let history = useHistory();
-  
-    function handleClick() {
-      history.push("/end");
-    }
-  
-    return (
-      <Redirect to="/end/" />
-    );
-  }
 
   let generateIndexPair = (pListSize, qListSize, pqIndexPairs) => {
     // Clear the index pairs array if all the player-question combinations
@@ -253,6 +245,7 @@ console.log("total ques"+totalques);
          <Sidebar>
      <div className="rectangle" style={{zIndex:2}}>
       <div style={{zIndex:1}}>
+        
       <img src="star.png" className="star"/>
       <img src="squiggle.png" className="squiggleone"/>
       <img src="eclipse.png" className="eclipse"/>
@@ -262,12 +255,13 @@ console.log("total ques"+totalques);
       </div>
         
       <div class="motto">
-          <h1>Bringing people</h1>
-          <h1>together.</h1>
+        <FadeInAnimation wrapperElement="h1" direction="down">
+          Bringing people<br/>
+          together.
+          </FadeInAnimation>
       </div>
-        
+   
     <form class="entername" autoComplete="off" onSubmit={getName}>
-
       <input
         id="namesInput"
         type='text'
@@ -276,9 +270,10 @@ console.log("total ques"+totalques);
         placeholder='Enter Name'
         className='border-rounded py-2'
       />
+        <FadeInAnimation wrapperElement="div" direction="left" delay="0.4">
       <p className="small">hit enter to add</p>
+      </FadeInAnimation>
     </form>
-        
 
       {nameList&&(
         <div className=" player-container">
@@ -292,14 +287,21 @@ console.log("total ques"+totalques);
             </ul>
             </div>
       )}<div className="start-container">
+        <FadeInAnimation wrapperElement="div" direction="left" delay="0.3">
       <Link to={"/settings"}>
         
       		<p className="start">Settings &#8594;</p>
       </Link>
+      
+      </FadeInAnimation>
+      <FadeInAnimation wrapperElement="div" direction="left" delay="0.5">
       <Link to={`/lobby`}>
           <p className="custom-start">Start Game &#8594;</p>
        
       </Link> 
+      
+      
+      </FadeInAnimation>
  </div>
     </div>
 
@@ -315,12 +317,16 @@ console.log("total ques"+totalques);
               <div className="custom-logo">
                   <img src="get2know-logo.png" alt="get2know logo"/>
               </div>
-
-              <div className="custom-container">
+            
+        
+              <div className="custom-container">  
+              <FadeInAnimation wrapperElement="div" direction="left" delay="0.8" distance="50">
                 <div className="custom-tagline">
+                <FadeInAnimation wrapperElement="div" direction="up" delay="1.2" distance="50">
                    <h1> Play it your way</h1>
+                   </FadeInAnimation>
                 </div>
-
+                </FadeInAnimation>
                 <div className="custom-rectangle">
                 <div className="custom-settings">
             <form onChange={setSettings}>
@@ -342,28 +348,34 @@ console.log("total ques"+totalques);
             </div>
             </div>
             </div>
-
+            <FadeInAnimation wrapperElement="div" direction="left" delay="0.5" >
             <Link to={`/lobby`}>
               <div className="start-container">
                 <p className="custom-start">Start Game &#8594;</p>
               </div>
             </Link> 
-
+</FadeInAnimation>
             </div>
           )}/>
           <Route path="/round:id" render={()=>(
 
             <div class="ingame-container">
                 <div class="ingame-question-container">
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="0.1" distance="150">
                     <h1 class="ingame-greeting">
                         Hey, <span class = "ingame-name" id="personHolder">Lets Begin</span>!
                     </h1>
+                    </FadeInAnimation>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="0.5" distance="50">
                     <p id="questionHolder"></p>
+                    </FadeInAnimation>
                 </div>
                 <div class="ingame-order-container">
+                <FadeInAnimation wrapperElement="div" direction="up" delay="0.5" distance="50">
                     <div class="ingame-left">
                         <p>Round {currentRound}</p>
                     </div>
+                    </FadeInAnimation>
                     <div class="ingame-right">
                         <Link to={link}>
                             <button onClick={(e) =>{newRound();getQuestion()}}>next question</button>
@@ -375,45 +387,77 @@ console.log("total ques"+totalques);
             )}/>
           <Route path="/lobby" render={()=>(
           <div className="activity-container">
-          <img src="polygon.png" className="activity-polygon"/>
+          {/* <img src="polygon.png" className="activity-polygon"/>
           <img src="star2.png" className="activity-star"/>
-          <img src="squiggle.png" className="activity-squiggle"/>
+          <img src="squiggle.png" className="activity-squiggle"/> */}
           <div className="activity-logo">
               <img src="get2know-logo.png" alt="get2know logo"/>
           </div>
+          <FadeInAnimation wrapperElement="div" direction="left" delay="0.4" distance="50">
           <div className="activity-header">
               <h1>So...whatcha wanna do?</h1>
           </div>
+          </FadeInAnimation>
   
             <div className="activity-topics">
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="0.8" distance="50">
                     <div className="activity-topic">
                     <Link to={`/round1`}>
                         <div onClick={(e) =>{newRound();setPack("default")}} className="activity-rectangle" id="box1"><img src="box.png"/></div>
                         <p className="activity-content">Break the ice</p>
                         </Link>
                     </div>
+                    </FadeInAnimation>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="1.6" distance="50">
                     <div className="activity-topic">
                     <Link to={`/round1`}>
                         <div onClick={(e) =>{newRound();setPack("class")}} className="activity-rectangle" id="box3"><img src="bell.png"/></div>
                         <p className="activity-content">Class is in session</p>
                         </Link>
                     </div>
+                    </FadeInAnimation>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="1.2" distance="50">
                     <div className="activity-topic">
                     <Link to={`/round1`}>
                         <div onClick={(e) =>{newRound();setPack("romance")}} className="activity-rectangle" id="box2"><img src="flower.png"/></div>
                         <p className="activity-content">Budding romance &#128563;</p>
                         </Link>
                     </div>
+                    </FadeInAnimation>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="2" distance="50">
                     <div className="activity-topic">
                     <Link to={`/round1`}>
                         <div onClick={(e) =>{newRound();setPack("deep")}} className="activity-rectangle" id="box4"><img src="file.png"/></div>
                         <p className="activity-content">Very Deep</p>
                         </Link>
                     </div>
+                    </FadeInAnimation>
             </div>
       </div>  
           )}/>
-          <Route path="/end" component={Home}/>
+          <Route path="/end" render={()=>(
+          <div className="ingame-container">
+                <div className="ingame-question-container">
+                    <br/><br/><br/>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="0.2" distance="150">
+                    <p>Thanks for playing!&#127881;</p>
+                    </FadeInAnimation>
+                    <FadeInAnimation wrapperElement="div" direction="left" delay="0.4" distance="150">
+                    <p>We hope you had as much fun</p>
+                    <p>as we did.</p>
+                    </FadeInAnimation>
+                </div>
+                <div className="ingame-order-container">
+             
+                    <div className="ingame-right">   <FadeInAnimation wrapperElement="div" direction="up" delay="0.8" distance="50">
+                        <Link to="/lobby">
+                            <button onClick={resetRounds}>Play again</button>
+                        </Link>
+                    </FadeInAnimation>
+                    </div>
+                </div>
+            </div>
+            )}/>
           </Switch>
           </Main>
     </div>
