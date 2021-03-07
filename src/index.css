@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+*{
+  border: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+ul{
+  padding-inline-start: 0px;
+}
+
+.logo {
+  padding-top: 3em;
+}
+
+img{
+  z-index: 0;
+}
+.ingame-order-container .ingame-right {
+  text-align: right;
+  position: absolute;
+  margin-left: 1050px;
+  padding-top: 1.2em;
+}
+.ingame-order-container .ingame-right button {
+  background-color: #131313;
+  border: 3px solid #FF7D7D;
+  border-radius: 40px;
+  width: 280px;
+  height: auto;
+  color: #FF7D7D;
+  font-size: 36px;
+  text-decoration: none;
+  font-family: "Poppins";
+}
+.motto {
+  color: #FFFFFF;
+  padding-bottom: 4em;
+  z-index: 10000;
+}
+.motto p {
+  font-size: 22px;
+}
+.motto h1 {
+  font-size: 6.5vw;
+  margin: 0;
+}
+
+.buttons {
+  font-size: 24px;
+  font-family: "Poppins";
+}
+.buttons .join-btn {
+  border: none;
+  padding: 0.5em;
+  border-radius: 20px;
+  background: #FF7D7D;
+  color: #FFFFFF;
+}
+.buttons .create-btn {
+  border-color: #FF7D7D;
+  color: #FF7D7D;
+  background: #131313;
+  padding: 0.5em;
+  border-radius: 20px;
+}
+
+.entername input {
+  font-family: "Poppins";
+  font-size: 18px;
+  font-style: medium;
+  padding-left: 2em;
+  width: 408px;
+  height: 47px;
+  left: 521px;
+  top: 513px;
+  outline: none;
+  border: none;
+  border-radius: 100px;
+}
+.entername ::placeholder {
+  font-family: "Poppins";
+  font-size: 18px;
+}
+.entername .small {
+  font-size: 14px;
+  color: #FF8484;
+  text-align: right;
+  padding-right: 580px;
+  margin: 0.2em;
+}
+
+.player-container {
+  height: 84px;
+  display: table;
+  width: 100%;
+  text-align: center;
+}
+.player-container ul {
+  list-style: none;
+  padding-top: 20px;
+}
+.player-container ul li {
+  font-size: 22px;
+  font-style: SemiBold;
+  color: #FFFFFF;
+  display: inline;
+  padding: 1em;
+  align-items: center;
+}
+
+.start {
+  font-size: 24px;
+  font-style: medium;
+  color: #FFEC89;
+  text-decoration: underline;
+}
+
+.star {
+  position: absolute;
+  left: 80px;
+  top: 100px;
+}
+
+.squiggleone {
+  position: absolute;
+  left: 0px;
+  top: 400px;
+}
+
+.eclipse {
+  position: absolute;
+  width: 350px;
+  height: auto;
+  top: 300px;
+  right: 60px;
+}
+
+
+.custom-logo {
+  padding-top: 3em;
+  margin-bottom: 4em;
+  text-align: left;
+  padding-left: 180px;
+}
+
+.custom-container {
+  margin-left: 500px;
+}
+.custom-container .custom-tagline {
+  width: 500px;
+  height: 80px;
+  border: 6px solid #FFEC89;
+  border-radius: 40px;
+  font-style: medium;
+  font-size: 24px;
+  color: #FFEC89;
+  text-align: center;
+  padding-top: 0.25em;
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.custom-rectangle {
+  height: 280px;
+  width: 530px;
+  border-radius: 30px;
+  background: #FFEC89;
+  margin-bottom: 4em;
+  align-items: left;
+}
+.custom-rectangle .custom-settings {
+  padding-top: 2em;
+}
+.setting-names {
+  font-size: 20px;
+  font-style: bold;
+}
+
+.table{
+  margin: auto;
+  vertical-align: auto;
+  grid-column: 1;
+}
+
+.custom-start {
+  font-size: 24px;
+  font-style: medium;
+  color: #FFEC89;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.custom-star {
+  position: absolute;
+  right: 280px;
+  top: 160px;
+}
+
+.custom-semicircle {
+  position: absolute;
+  left: 160px;
+  top: 380px;
+}
+
+.custom-ellipse {
+  position: absolute;
+  top: 550px;
+  right: 160px;
+}
+
+td{
+  color: black;
+}
+
+.activity-container{
+  align-content: center;
+}
+
+.activity-logo {
+  padding-top: 5em;
+}
+
+.activity-header {
+  margin-bottom: 5em;
+}
+.activity-header h1 {
+  color: #FFFFFF;
+  font-size: 72px;
+  font-style: SemiBold;
+}
+
+.activity-topics {
+  text-align: center;
+  column-count: 2;
+  padding-left: 150px;
+}
+.activity-topics .activity-topic {
+  height: 350px;
+  width: 510px;
+  padding-bottom: 100px;
+}
+.activity-topics .activity-topic .activity-rectangle {
+  height: 310px;
+  width: 500px;
+  border-radius: 30px;
+}
+.activity-topics .activity-topic .activity-rectangle img {
+  margin-top: 20px;
+}
+.activity-content {
+  color: #FFFFFF;
+  font-size: 36px;
+  font-style: medium;
+  margin-top: 0.25em;
+}
+.activity-topic:hover{
+  transform: scale();
+}
+.star {
+  position: absolute;
+  right: 270px;
+  top: 130px;
+}
+
+.polygon {
+  position: absolute;
+  right: 140px;
+  top: 80px;
+}
+
+.squiggle {
+  position: absolute;
+  left: 0px;
+  top: 1150px;
+}
+
+#box1 {
+  background: #FFEC89;
+}
+
+#box2 {
+  background: #EA51C8;
+}
+
+#box3 {
+  background: #4176E1;
+}
+
+#box4 {
+  background: #be08f5;
+}
+
+.ingame-container {
+  text-align: left;
+  padding-left: 7em;
+  padding-top: 6em;
+}
+.ingame-container .ingame-name {
+  color: #FF7D7D;
+}
+
+.ingame-question-container {
+  color: #FFFFFF;
+}
+.ingame-question-container h1 {
+  font-size: 36px;
+  margin-bottom: 3em;
+}
+.ingame-question-container p {
+  font-size: 64px;
+  margin: 0;
+}
+
+.ingame-order-container {
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 55% auto;
+  font-size: 36px;
+}
+.ingame-order-container .ingame-left {
+  color: #FFFFFF;
+}
+.ingame-order-container .ingame-right {
+  text-align: right;
+  padding-right: 3em;
+}
+.ingame-order-container .ingame-right button {
+  background-color: #131313;
+  border: 3px solid #FF7D7D;
+  border-radius: 40px;
+  width: 280px;
+  height: auto;
+  color: #FF7D7D;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+button:focus {
+    outline: none;
+}

@@ -1,44 +1,42 @@
 {
-    "name": "get2know",
-    "version": "0.0.1",
-    "author": {
-        "name": "Nathanael Putro",
-        "email": "nputro@student.unimelb.edu.au"
-    },
-    "contributors": [
-        {
-            "name": "Callista Low Li Yin",
-            "email": "callistaliyi@student.unimelb.edu.au"
-        },
-        {
-            "name": "Livya Riany",
-            "email": "lriany@student.unimelb.edu.au"
-        },
-        {
-            "name": "Stanley Wirian",
-            "email": "swirian@student.unimelb.edu.au"
-        },
-        {
-            "name": "Tabitha Ayudya",
-            "email": "tayudya@student.unimelb.edu.au"
-        },
-        {
-            "name": "Yuji Nojima",
-            "email": "ynojima@student.unimelb.edu.au"
-        }
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fullpage/react-fullpage": "^0.1.19",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.8.1",
+    "fullpage.js": "^3.1.0",
+    "gsap": "^3.6.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "repository": "github:techn0mancr/get2know",
-    "main": "server.js",
-    "private": true,
-    "dependencies": {
-        "ejs": "*",
-        "express": "^4.17.1",
-        "mongoose": "*",
-        "react": "*",
-        "twilio": "*"
-    },
-    "engines": {
-        "node": "*",
-        "npm": "*"
-    }
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
