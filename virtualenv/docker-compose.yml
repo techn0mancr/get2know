@@ -4,11 +4,11 @@ services:
     build:
       context: .
       dockerfile: mern.Dockerfile
-    image: mern:get2know
+    image: mern:get2know-react
     container_name: mern
     volumes:
       - type: bind
         source: ..
-        target: /home/get2know/workspace
+        target: /home/get2know-react/workspace
     ports:
-      - "8080:3000"
+      - "3000:3000"
